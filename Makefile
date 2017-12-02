@@ -6,28 +6,40 @@
 #    By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/02 18:18:19 by nkamolba          #+#    #+#              #
-#    Updated: 2017/12/02 18:36:05 by nkamolba         ###   ########.fr        #
+#    Updated: 2017/12/03 00:08:24 by terng            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CHECKER = checker
+PUSH_SWAP = push_swap
+LIBFT = libft/libft.a
 FLAG = -Wall -Wextra -Werror
+LIB = -Llibft -lft
 
-CHECKER_F = checker.c stack.c ft_error.c operation.c read_input.c stack_operation.c
+UTILS_F = stack.c ft_error.c operation.c read_input.c stack_operation.c
+CHECKER_F = checker.c
+PUSH_SWAP_F = push_swap.c
 
-all : $(CHECKER)
+all : $(LIBFT) $(CHECKER) $(PUSH_SWAP)
 
-$(CHECKER) :
+
+$(LIBFT) :
 	make -C libft
-	gcc $(FLAG) -o $(CHECKER) $(CHECKER_F) -Llibft -lft
+
+$(CHECKER) : | $(LIBFT)
+	gcc $(FLAG) -o $(CHECKER) $(CHECKER_F) $(UTILS_F) $(LIB)
+
+$(PUSH_SWAP) : | $(LIBFT)
+	gcc $(FLAG) -o $(PUSH_SWAP) $(PUSH_SWAP_F) $(UTILS_F) $(LIB)
 	
 clean :
 	make clean -C libft
 
-fclean : clean
+fclean :
 	make fclean -C libft
 	rm -f $(CHECKER)
+	rm -f $(PUSH_SWAP)
 
 re : fclean all
 
-.PHONY: all $(NAME) clean fclean re
+.PHONY: all $(LIBFT) $(CHECKER) $(PUSH_SWAP) clean fclean re

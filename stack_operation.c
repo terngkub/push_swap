@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:54:22 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/02 17:54:25 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/02 23:39:20 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,3 @@ t_stack *ft_stack_revrotate(t_stack *stack)
 	stack->bottom = tmp;
 	return (stack);
 }
-
-

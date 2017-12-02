@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:54:30 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/02 17:55:29 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/02 23:40:26 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,26 @@ void	ft_operate_r(char *op, t_stack *stack_a, t_stack *stack_b)
 		ft_error();
 }
 
-void	ft_operate(char *op, t_stack *stack_a, t_stack *stack_b)
+void	ft_operate(char *op, t_stack *stack_a, t_stack *stack_b, char print)
 {
 	if (op[0] == 's')
+	{
 		ft_operate_s(op, stack_a, stack_b);
+		if (print)
+			ft_putendl(op);
+	}
 	else if (op[0] == 'p')
+	{
 		ft_operate_p(op, stack_a, stack_b);
+		if (print)
+			ft_putendl(op);
+	}
 	else if (op[0] == 'r')
+	{
 		ft_operate_r(op, stack_a, stack_b);
+		if (print)
+			ft_putendl(op);
+	}
 	else
 		ft_error();
 }

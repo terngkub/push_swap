@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:14:10 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/02 18:03:48 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/02 23:36:53 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ t_stack				*ft_stack_revrotate(t_stack *stack);
 void				ft_operate_s(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate_p(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate_r(char *op, t_stack *stack_a, t_stack *stack_b);
-void				ft_operate(char *op, t_stack *stack_a, t_stack *stack_b);
+void				ft_operate(char *op, t_stack *stack_a, t_stack *stack_b,
+						char print);
 
 void				ft_check_duplication(t_stack *stack);
 void				ft_check_input(char *str);
