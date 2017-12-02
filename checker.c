@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:15:43 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/02 18:00:27 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/02 18:33:03 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack *stack_b;
-	size_t	len;
 	char	*op;
 
 	if (argc == 1)

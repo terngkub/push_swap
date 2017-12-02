@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 15:37:09 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/02 15:39:17 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/02 18:32:45 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ t_stack *ft_stack_new(void)
 
 t_stack *ft_stack_push(t_stack *stack, t_node *node)
 {
-	t_node	*tmp;
-
 	if (!stack)
 		return (NULL);
 	if (!node)
@@ -46,8 +44,6 @@ t_stack *ft_stack_push(t_stack *stack, t_node *node)
 
 t_stack *ft_stack_pushback(t_stack *stack, t_node *node)
 {
-	t_node	*tmp;
-
 	if (!stack)
 		return (NULL);
 	if (!node)
