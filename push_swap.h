@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:14:10 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/02 23:36:53 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/03 12:44:53 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct		s_stack
 {
 	struct s_node	*top;
 	struct s_node	*bottom;
+	size_t			len;
 }					t_stack;
 
 void				ft_error(void);

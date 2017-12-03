@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 17:43:42 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/01 13:00:32 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/02 23:44:40 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft.h"
 # include <stdarg.h>
+# include <inttypes.h>
 
 typedef struct	s_printf
 {
