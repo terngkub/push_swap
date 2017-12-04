@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:14:10 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/03 12:44:53 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/03 14:03:31 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ t_stack				*ft_stack_push(t_stack *stack, t_node *node);
 t_stack				*ft_stack_pushback(t_stack *stack, t_node *node);
 t_node				*ft_node_new(int n);
 t_node				*ft_stack_pop(t_stack *stack);
+
+int					ft_stack_issorted(t_stack *stack);
+void				ft_stack_print(t_stack *stack);
 
 t_stack				*ft_stack_swap(t_stack *stack);
 t_stack				*ft_stack_rotate(t_stack *stack);
