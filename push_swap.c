@@ -83,6 +83,7 @@ int		main(int argc, char **argv)
 		ft_selection_sort(stack_a, stack_b);
 	*/
 	ft_shortest_sort(stack_a, stack_b);
+	//ft_printf("%d\n", ft_stack_issorted(stack_a));
 	//ft_stack_print(stack_a);
 	return (0);
 }
