@@ -6,64 +6,148 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 19:04:51 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/04 19:05:42 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/06 10:54:08 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-int		ft_move_num(t_stack *stack_a, t_stack *stack_b, int index_a, t_node *node_a)
-{
-	t_node	*node_b;
-	t_node	*place;
-	int		i;
-	int		index_b;
+#include "push_swap.h"
 
-	node_b = stack_b->top;
+typedef struct		s_op
+{
+	int				ra;
+	int				rra;
+	int				b;
+}					t_op;
+
+int		ft_index_b(t_node *node_a, t_node *node_b)
+{
+	int		target;
+	int		index;
+	int		i;
+	char	trigger;
+
+	if (!node_b || !(node_b->next))
+		return (0);
+	target = -2147483648;
+	index = 0;
 	i = 0;
+	trigger = 0;
 	while (node_b)
 	{
-		if (place->n < node_b->n && node_b->n < node_a->n)
+		if ((i == 0 || target < node_b->n) && node_b->n < node_a->n)
 		{
-			place = node->b;
-			index_b = i;
+			target = node_b->n;
+			index = i;
+			trigger = 1;
 		}
-		i++;
 		node_b = node_b->next;
+		i++;
 	}
-	return (index_a + index_b);
+	if (trigger == 0)
+		return (-1);
+	return (index);
 }
+
+void	ft_index(t_stack *stack_a, t_stack *stack_b, t_op *op)
+{
+	t_node	*node;
+	int		min;
+	int		ra;
+	int		rra;
+	int		i;
+	int		index_b;
+	
+	node = stack_a->top;
+	min = 2147483647;
+	i = 0;
+	while (node)
+	{
+		ra = ((size_t)i > stack_a->len / 2) ? 0 : i;
+		rra = ((size_t)i > stack_a->len / 2) ? stack_a->len - i : 0;
+		index_b = ft_index_b(node, stack_b->top);
+		if (ra + rra + ((index_b == -1) ? 1 : index_b) < min)
+		{
+			min = ra + rra + ((index_b == -1) ? 1 : index_b);
+			op->ra = ra;
+			op->rra = rra;
+			op->b = index_b;
+		}
+		node = node->next;
+		i++;
+	}
+}
+
+void	ft_stack_arrange(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*node;
+	int		max;
+	int		rb;
+	int		rrb;
+	int		i;
+
+	node = stack_b->top;
+	max = -2147483648;
+	rb = 0;
+	rrb = 0;
+	i = 0;
+	while (node)
+	{
+		if (node->n > max)
+		{
+			max = node->n;
+			rb = ((size_t)i > stack_b->len / 2 ? 0 : i);
+			rrb = ((size_t)i > stack_b->len / 2 ? stack_b->len - i : 0);
+		}
+		node = node->next;
+		i++;
+	}
+	while (rb--)
+		ft_operate("rb", stack_a, stack_b, 1);
+	while (rrb--)
+		ft_operate("rrb", stack_a, stack_b, 1);
+}
+
+void	ft_debug(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_printf("a :");
+	ft_stack_print(stack_a);
+	ft_printf("b :");
+	ft_stack_print(stack_b);
+	ft_printf("______________________\n");
+}
+
 
 void	ft_shortest_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	t_node	*node;
-	t_node	*target_a;
-	t_node	*target_b;
-	int		i;
-	int		move_num;
-	int		target_num;
+	t_op	op;
 
-	while (!ft_stack_issorted(stack_a))
+	while (stack_a->len > 0)
 	{
-		node = stack_a->top;
-		i = 0;
-		target_num = 2147483648;
-		while (node)
-		{
-			move_num = ft_move_num(stack_a, stack_b, i, node);
-			if (move_num < target_num)
-			{
-				target_num = move_num;
-				target_a = node;
-			}
-			node = node->next;
-			i++;
-		}
-		node = stack->top;
-		while (node->n != target_a->n)
-		{
+		ft_index(stack_a, stack_b, &op);
+		while (op.ra--)
 			ft_operate("ra", stack_a, stack_b, 1);
-			
-		
+		while (op.rra--)
+			ft_operate("rra", stack_a, stack_b, 1);
+		while (op.b > 0)
+		{
+			ft_operate("rb", stack_a, stack_b, 1);
+			op.b--;
+		}
+		if (op.b == -1)
+		{
+			ft_stack_arrange(stack_a, stack_b);
+			ft_operate("pb", stack_a, stack_b, 1);
+			ft_operate("rb", stack_a, stack_b, 1);
+		}
+		else
+			ft_operate("pb", stack_a, stack_b, 1);
+		//ft_debug(stack_a, stack_b);
+	}
+	ft_stack_arrange(stack_a, stack_b);
+	//ft_debug(stack_a, stack_b);
+	while (stack_b->len > 0)
+	{
+		ft_operate("pa", stack_a, stack_b, 1);
+		//ft_debug(stack_a, stack_b);
 	}
 }
-*/

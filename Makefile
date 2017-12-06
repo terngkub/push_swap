@@ -6,7 +6,7 @@
 #    By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/02 18:18:19 by nkamolba          #+#    #+#              #
-#    Updated: 2017/12/03 13:03:13 by terng            ###   ########.fr        #
+#    Updated: 2017/12/06 09:19:17 by nkamolba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT = libft/libft.a
 FLAG = -Wall -Wextra -Werror
 LIB = -Llibft -lft
 
-UTILS_F = stack.c stack_utils.c ft_error.c operation.c read_input.c stack_operation.c
+UTILS_F = stack.c stack_utils.c ft_error.c operation.c read_input.c stack_operation.c short_sort.c
 CHECKER_F = checker.c
 PUSH_SWAP_F = push_swap.c
 
