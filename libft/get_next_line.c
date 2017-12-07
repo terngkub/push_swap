@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 10:14:17 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/11/15 18:52:44 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/07 16:53:56 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,7 @@ static int	read_more(int fd, t_fd_list *current, char **line)
 
 	while ((read_result = read(fd, buff, BUFF_SIZE)) > 0)
 	{
-		if (read_result < BUFF_SIZE && buff[read_result - 1] != '\n')
-		{
-			buff[read_result] = '\n';
-			buff[read_result + 1] = '\0';
-		}
-		else
-			buff[read_result] = '\0';
+		buff[read_result] = '\0';
 		if (!(join_buff(current, buff)))
 			return (-1);
 		if (ft_strchr(current->content, '\n'))
