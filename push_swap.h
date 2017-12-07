@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:14:10 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/06 09:18:17 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/07 14:38:16 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void				ft_check_duplication(t_stack *stack);
 void				ft_check_input(char *str);
 t_stack				*ft_read_input(int argc, char **argv);
 
+void				ft_selection_sort(t_stack *stack_a, t_stack *stack_b, size_t len);
 void				ft_shortest_sort(t_stack *stack_a, t_stack *stack_b);
+void				ft_bubble_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

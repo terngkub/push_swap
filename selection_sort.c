@@ -6,17 +6,19 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 19:05:16 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/04 19:05:18 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/07 14:48:39 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
-t_stack	*ft_selection_sort(t_stack *stack_a, t_stack *stack_b)
+void	ft_selection_sort(t_stack *stack_a, t_stack *stack_b, size_t len)
 {
 	t_node	*min_node;
 	t_node	*check;
 	size_t	index;
 	size_t	min;
+	size_t	pa;
 
 	while (stack_a->len > 1)
 	{
@@ -57,7 +59,7 @@ t_stack	*ft_selection_sort(t_stack *stack_a, t_stack *stack_b)
 			break;
 		ft_operate("pb", stack_a, stack_b, 1);
 	}
-	while (stack_b->len > 0)
+	pa = len - stack_a->len;
+	while (pa--)
 		ft_operate("pa", stack_a, stack_b, 1);
-	return (stack_a);
 }

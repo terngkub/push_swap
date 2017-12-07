@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 19:04:51 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/06 16:14:42 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/07 15:32:50 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,8 +199,10 @@ void	ft_debug(t_stack *stack_a, t_stack *stack_b)
 void	ft_shortest_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_op	op;
+	size_t	i;
 
-	while (stack_a->len > 0)
+	i = 45;
+	while (stack_a->len > i)
 	{
 		op.ra = 0;
 		op.rra = 0;
@@ -228,10 +230,17 @@ void	ft_shortest_sort(t_stack *stack_a, t_stack *stack_b)
 		//ft_debug(stack_a, stack_b);
 	}
 	ft_stack_arrange(stack_a, stack_b);
+	ft_selection_sort(stack_a, stack_b, i);
 	//ft_debug(stack_a, stack_b);
 	while (stack_b->len > 0)
 	{
-		ft_operate("pa", stack_a, stack_b, 1);
-		//ft_debug(stack_a, stack_b);
+			if (i && stack_b->top->n < stack_a->bottom->n)
+			{
+				ft_operate("rra", stack_a, stack_b, 1);
+				i--;
+			}
+			else
+				ft_operate("pa", stack_a, stack_b, 1);
+			//ft_debug(stack_a, stack_b);
 	}
 }
