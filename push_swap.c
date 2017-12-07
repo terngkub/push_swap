@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/07 18:09:07 by nkamolba          #+#    #+#             */
+/*   Updated: 2017/12/07 19:07:29 by nkamolba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int		main(int argc, char **argv)
@@ -12,12 +24,10 @@ int		main(int argc, char **argv)
 	else if (stack_a->len == 2 && stack_a->top->n > stack_a->top->next->n)
 		ft_operate("ra", stack_a, stack_b, 1);
 	else if (stack_a->len == 3)
-		ft_sort_three(stack_a, stack_b);
+		ft_three_sort(stack_a, stack_b);
 	else if (stack_a->len < 45)
 		ft_selection_sort(stack_a, stack_b, stack_a->len);
 	else
-		ft_shortest_sort(stack_a, stack_b);
-	//ft_printf("%d\n", ft_stack_issorted(stack_a));
-	//ft_stack_print(stack_a);
+		ft_short_sort(stack_a, stack_b);
 	return (0);
 }

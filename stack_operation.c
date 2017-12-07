@@ -6,13 +6,13 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:54:22 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/02 23:39:20 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/07 18:09:32 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *ft_stack_swap(t_stack *stack)
+t_stack	*ft_stack_swap(t_stack *stack)
 {
 	t_node	*tmp;
 
@@ -45,7 +45,7 @@ t_stack	*ft_stack_rotate(t_stack *stack)
 	return (stack);
 }
 
-t_stack *ft_stack_revrotate(t_stack *stack)
+t_stack	*ft_stack_revrotate(t_stack *stack)
 {
 	t_node *tmp;
 

@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:59:11 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/02 18:03:25 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/07 18:04:58 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_stack	*ft_read_input(int argc, char **argv)
 	char	**arr;
 	int		i;
 	int		j;
-	
+
 	stack = ft_stack_new();
 	i = 1;
 	while (i < argc)

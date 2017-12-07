@@ -6,13 +6,13 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 15:37:09 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/03 12:50:54 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/07 18:08:41 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *ft_stack_new(void)
+t_stack	*ft_stack_new(void)
 {
 	t_stack	*stack;
 
@@ -24,7 +24,7 @@ t_stack *ft_stack_new(void)
 	return (stack);
 }
 
-t_stack *ft_stack_push(t_stack *stack, t_node *node)
+t_stack	*ft_stack_push(t_stack *stack, t_node *node)
 {
 	if (!stack)
 		return (NULL);
@@ -45,7 +45,7 @@ t_stack *ft_stack_push(t_stack *stack, t_node *node)
 	return (stack);
 }
 
-t_stack *ft_stack_pushback(t_stack *stack, t_node *node)
+t_stack	*ft_stack_pushback(t_stack *stack, t_node *node)
 {
 	if (!stack)
 		return (NULL);
@@ -66,7 +66,7 @@ t_stack *ft_stack_pushback(t_stack *stack, t_node *node)
 	return (stack);
 }
 
-t_node *ft_node_new(int n)
+t_node	*ft_node_new(int n)
 {
 	t_node	*node;
 
@@ -77,10 +77,10 @@ t_node *ft_node_new(int n)
 	return (node);
 }
 
-t_node *ft_stack_pop(t_stack *stack)
+t_node	*ft_stack_pop(t_stack *stack)
 {
 	t_node *tmp;
-	
+
 	if (!stack)
 		return (NULL);
 	if (stack->len == 0)
