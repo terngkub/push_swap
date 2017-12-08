@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:14:10 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/07 19:10:03 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/08 20:17:08 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void				ft_error(void);
 
 void				ft_check_duplication(t_stack *stack);
 void				ft_check_input(char *str);
-t_stack				*ft_read_input(int argc, char **argv);
+t_stack				*ft_read_input(int argc, char **argv, int *debug);
 
 void				ft_operate_s(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate_p(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate_r(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate(char *op, t_stack *stack_a, t_stack *stack_b,
-						char print);
+						char print, int debug);
 
 typedef struct		s_op
 {
@@ -70,18 +70,22 @@ void				ft_copy_op(t_op *dst, t_op *src);
 void				ft_get_op_b(t_node *node_a, t_node *node_b, int len,
 						t_op *op);
 void				ft_get_op(t_stack *stack_a, t_stack *stack_b, t_op *op);
-void				ft_run_op(t_stack *stack_a, t_stack *stack_b, t_op *op);
+void				ft_run_op(t_stack *stack_a, t_stack *stack_b, t_op *op,
+						int debug);
 
 void				ft_optimize_rotate(t_op *op);
 void				ft_optimize_revrotate(t_op *op);
 void				ft_optimize_operation(t_op *op);
 
-void				ft_stack_arrange(t_stack *stack_a, t_stack *stack_b);
+void				ft_stack_arrange(t_stack *stack_a, t_stack *stack_b,
+						int debug);
 void				ft_stack_arrange_add(t_stack *stack_b, t_op *op);
 
-void				ft_three_sort(t_stack *stack_a, t_stack *stack_b);
+void				ft_three_sort(t_stack *stack_a, t_stack *stack_b,
+						int debug);
 void				ft_selection_sort(t_stack *stack_a, t_stack *stack_b,
-						size_t len);
-void				ft_short_sort(t_stack *stack_a, t_stack *stack_b);
+						size_t len, int debug);
+void				ft_short_sort(t_stack *stack_a, t_stack *stack_b,
+						int debug);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op.c                                               :+:      :+:    :+:   */
+/*   op_t.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 18:41:29 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/07 18:54:31 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/08 20:15:14 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,12 @@ void	ft_copy_op(t_op *dst, t_op *src)
 void	ft_get_op_b(t_node *node_a, t_node *node_b, int len, t_op *op)
 {
 	int		target;
-	int		index;
 	int		i;
 	char	trigger;
 
 	if (!node_b || !(node_b->next))
 		return ;
 	target = -2147483648;
-	index = 0;
 	i = 0;
 	trigger = 0;
 	while (node_b)
@@ -90,20 +88,20 @@ void	ft_get_op(t_stack *stack_a, t_stack *stack_b, t_op *op)
 	}
 }
 
-void	ft_run_op(t_stack *stack_a, t_stack *stack_b, t_op *op)
+void	ft_run_op(t_stack *stack_a, t_stack *stack_b, t_op *op, int debug)
 {
 	if (op->arrange)
 		ft_stack_arrange_add(stack_b, op);
 	while (op->ra--)
-		ft_operate("ra", stack_a, stack_b, 1);
+		ft_operate("ra", stack_a, stack_b, 1, debug);
 	while (op->rra--)
-		ft_operate("rra", stack_a, stack_b, 1);
+		ft_operate("rra", stack_a, stack_b, 1, debug);
 	while (op->rb--)
-		ft_operate("rb", stack_a, stack_b, 1);
+		ft_operate("rb", stack_a, stack_b, 1, debug);
 	while (op->rrb--)
-		ft_operate("rrb", stack_a, stack_b, 1);
+		ft_operate("rrb", stack_a, stack_b, 1, debug);
 	while (op->rr--)
-		ft_operate("rr", stack_a, stack_b, 1);
+		ft_operate("rr", stack_a, stack_b, 1, debug);
 	while (op->rrr--)
-		ft_operate("rrr", stack_a, stack_b, 1);
+		ft_operate("rrr", stack_a, stack_b, 1, debug);
 }

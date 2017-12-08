@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:59:11 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/07 18:04:58 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/08 20:30:04 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,19 @@ void	ft_check_input(char *str)
 	i = 0;
 	while (str[i])
 	{
+		if (str[i] == '-')
+			i++;
 		if (str[i] < '0' || str[i] > '9')
 			ft_error();
-		i++;
+		if (str[i])
+			i++;
 	}
 	n = ft_atoi(str);
 	if (n > 2147483647 || n < -2147483648)
 		ft_error();
 }
 
-t_stack	*ft_read_input(int argc, char **argv)
+t_stack	*ft_read_input(int argc, char **argv, int *debug)
 {
 	t_stack	*stack;
 	char	**arr;
@@ -57,6 +60,11 @@ t_stack	*ft_read_input(int argc, char **argv)
 
 	stack = ft_stack_new();
 	i = 1;
+	if (debug && ft_strcmp(argv[i], "-v") == 0)
+	{
+		*debug = 1;
+		i++;
+	}
 	while (i < argc)
 	{
 		if (!(arr = ft_strsplit(argv[i++], ' ')))

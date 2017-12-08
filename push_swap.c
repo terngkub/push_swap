@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 18:09:07 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/07 19:07:29 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/08 20:10:14 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 int		main(int argc, char **argv)
 {
+	int		debug;
 	t_stack	*stack_a;
 	t_stack *stack_b;
 
-	stack_a = ft_read_input(argc, argv);
+	debug = 0;
+	stack_a = ft_read_input(argc, argv, &debug);
 	stack_b = ft_stack_new();
 	if (argc == 1 || stack_a->len == 1)
 		return (0);
 	else if (stack_a->len == 2 && stack_a->top->n > stack_a->top->next->n)
-		ft_operate("ra", stack_a, stack_b, 1);
+		ft_operate("ra", stack_a, stack_b, 1, debug);
 	else if (stack_a->len == 3)
-		ft_three_sort(stack_a, stack_b);
+		ft_three_sort(stack_a, stack_b, debug);
 	else if (stack_a->len < 45)
-		ft_selection_sort(stack_a, stack_b, stack_a->len);
+		ft_selection_sort(stack_a, stack_b, stack_a->len, debug);
 	else
-		ft_short_sort(stack_a, stack_b);
+		ft_short_sort(stack_a, stack_b, debug);
 	return (0);
 }

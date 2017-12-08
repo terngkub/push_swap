@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:15:43 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/07 17:25:19 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/08 20:20:55 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (1);
-	stack_a = ft_read_input(argc, argv);
+	stack_a = ft_read_input(argc, argv, NULL);
 	stack_b = ft_stack_new();
 	while (get_next_line(0, &op) > 0)
 	{
-		ft_operate(op, stack_a, stack_b, 0);
+		ft_operate(op, stack_a, stack_b, 0, 0);
 		free(op);
 	}
 	if (stack_b->len > 0 || !ft_stack_issorted(stack_a))
