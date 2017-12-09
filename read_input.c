@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:59:11 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/08 20:30:04 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/09 10:10:24 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,27 @@ void	ft_check_input(char *str)
 		ft_error();
 }
 
-t_stack	*ft_read_input(int argc, char **argv, int *debug)
+void	ft_check_option(char **argv, int *i, t_option *option)
+{
+	if (ft_strcmp(argv[*i], "-v") == 0)
+	{
+		option->debug = 1;
+		*i += 1;
+	}
+	else if (ft_strcmp(argv[*i], "-c") == 0)
+	{
+		option->colour = 1;
+		*i += 1;
+	}
+	else if (ft_strcmp(argv[*i], "-vc") == 0 || ft_strcmp(argv[*i], "-cv") == 0)
+	{
+		option->debug = 1;
+		option->colour = 1;
+		*i += 1;
+	}
+}
+
+t_stack	*ft_read_input(int argc, char **argv, t_option *option)
 {
 	t_stack	*stack;
 	char	**arr;
@@ -60,11 +80,7 @@ t_stack	*ft_read_input(int argc, char **argv, int *debug)
 
 	stack = ft_stack_new();
 	i = 1;
-	if (debug && ft_strcmp(argv[i], "-v") == 0)
-	{
-		*debug = 1;
-		i++;
-	}
+	ft_check_option(argv, &i, option);
 	while (i < argc)
 	{
 		if (!(arr = ft_strsplit(argv[i++], ' ')))

@@ -6,13 +6,13 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:08:25 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/08 20:22:03 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/09 09:33:40 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_stack_arrange(t_stack *stack_a, t_stack *stack_b, int debug)
+void	ft_stack_arrange(t_stack *stack_a, t_stack *stack_b, t_option *option)
 {
 	t_node	*node;
 	t_op	op;
@@ -35,9 +35,9 @@ void	ft_stack_arrange(t_stack *stack_a, t_stack *stack_b, int debug)
 		i++;
 	}
 	while (op.rb--)
-		ft_operate("rb", stack_a, stack_b, 1, debug);
+		ft_operate("rb", stack_a, stack_b, 1, option);
 	while (op.rrb--)
-		ft_operate("rrb", stack_a, stack_b, 1, debug);
+		ft_operate("rrb", stack_a, stack_b, 1, option);
 }
 
 void	ft_stack_arrange_add(t_stack *stack_b, t_op *op)

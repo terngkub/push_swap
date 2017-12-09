@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 18:41:29 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/08 20:15:14 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/09 09:34:56 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,20 +88,20 @@ void	ft_get_op(t_stack *stack_a, t_stack *stack_b, t_op *op)
 	}
 }
 
-void	ft_run_op(t_stack *stack_a, t_stack *stack_b, t_op *op, int debug)
+void	ft_run_op(t_stack *stack_a, t_stack *stack_b, t_op *op, t_option *option)
 {
 	if (op->arrange)
 		ft_stack_arrange_add(stack_b, op);
 	while (op->ra--)
-		ft_operate("ra", stack_a, stack_b, 1, debug);
+		ft_operate("ra", stack_a, stack_b, 1, option);
 	while (op->rra--)
-		ft_operate("rra", stack_a, stack_b, 1, debug);
+		ft_operate("rra", stack_a, stack_b, 1, option);
 	while (op->rb--)
-		ft_operate("rb", stack_a, stack_b, 1, debug);
+		ft_operate("rb", stack_a, stack_b, 1, option);
 	while (op->rrb--)
-		ft_operate("rrb", stack_a, stack_b, 1, debug);
+		ft_operate("rrb", stack_a, stack_b, 1, option);
 	while (op->rr--)
-		ft_operate("rr", stack_a, stack_b, 1, debug);
+		ft_operate("rr", stack_a, stack_b, 1, option);
 	while (op->rrr--)
-		ft_operate("rrr", stack_a, stack_b, 1, debug);
+		ft_operate("rrr", stack_a, stack_b, 1, option);
 }

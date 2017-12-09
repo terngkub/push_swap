@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:14:10 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/08 20:17:08 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/09 10:05:05 by terng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,21 @@ void				ft_debug(t_stack *stack_a, t_stack *stack_b);
 
 void				ft_error(void);
 
+typedef struct		s_option
+{
+	int				debug;
+	int				colour;
+}					t_option;
+
 void				ft_check_duplication(t_stack *stack);
 void				ft_check_input(char *str);
-t_stack				*ft_read_input(int argc, char **argv, int *debug);
+t_stack				*ft_read_input(int argc, char **argv, t_option *option);
 
 void				ft_operate_s(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate_p(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate_r(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate(char *op, t_stack *stack_a, t_stack *stack_b,
-						char print, int debug);
+						char print, t_option *option);
 
 typedef struct		s_op
 {
@@ -71,21 +77,21 @@ void				ft_get_op_b(t_node *node_a, t_node *node_b, int len,
 						t_op *op);
 void				ft_get_op(t_stack *stack_a, t_stack *stack_b, t_op *op);
 void				ft_run_op(t_stack *stack_a, t_stack *stack_b, t_op *op,
-						int debug);
+						t_option *option);
 
 void				ft_optimize_rotate(t_op *op);
 void				ft_optimize_revrotate(t_op *op);
 void				ft_optimize_operation(t_op *op);
 
 void				ft_stack_arrange(t_stack *stack_a, t_stack *stack_b,
-						int debug);
+						t_option *option);
 void				ft_stack_arrange_add(t_stack *stack_b, t_op *op);
 
 void				ft_three_sort(t_stack *stack_a, t_stack *stack_b,
-						int debug);
+						t_option *option);
 void				ft_selection_sort(t_stack *stack_a, t_stack *stack_b,
-						size_t len, int debug);
+						size_t len, t_option *option);
 void				ft_short_sort(t_stack *stack_a, t_stack *stack_b,
-						int debug);
+						t_option *option);
 
 #endif
