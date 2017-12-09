@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:59:11 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/09 12:27:32 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/09 16:00:28 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_check_duplication(t_stack *stack)
 	t_node	*check;
 
 	node = stack->top;
-	while (node->next)
+	while (node)
 	{
 		check = node->next;
 		while (check)
