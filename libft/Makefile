@@ -6,7 +6,7 @@
 #    By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 09:11:21 by nkamolba          #+#    #+#              #
-#    Updated: 2017/12/01 13:22:11 by nkamolba         ###   ########.fr        #
+#    Updated: 2017/12/09 20:00:59 by nkamolba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,21 +32,26 @@ FILE =	ft_memset ft_bzero ft_memcpy ft_memccpy ft_memmove ft_memchr ft_memcmp\
 		get_next_line
 		
 FILE_C = $(addsuffix .c, $(FILE))
-FILE_O = $(addsuffix .o, $(FILE))
+FILE_O = $(FILE_C:.c=.o)
 
 PNTF =	ft_printf read_input get_conv get_data\
 		get_num get_str get_wchar get_ptr\
 		handle_flag handle_wp
 
 PNTF_C = $(addprefix ft_printf/, $(addsuffix .c, $(PNTF)))
-PNTF_O = $(addsuffix .o, $(PNTF))
+PNTF_O = $(PNTF_C:.c=.o)
 
 all : $(NAME)
 
-$(NAME) :
-	gcc -Wall -Wextra -Werror -c $(FILE_C) $(PNTF_C)
-	ar rc $(NAME) $(FILE_O) $(PNTF_O)
+$(NAME) : $(FILE_O) $(PNTF_O)
+	ar rc $(NAME) $^
 	ranlib $(NAME)
+
+%.o: %.c
+	gcc -Wall -Wextra -Werror -c $< -o $@
+
+ft_printf/%.o: %.c
+	gcc -Wall -Wextra -Werror -c $< -o $@
 
 clean :
 	rm -f $(FILE_O) $(PNTF_O)
