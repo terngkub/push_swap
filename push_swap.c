@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 18:09:07 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/09 12:21:36 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/09 17:54:39 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		main(int argc, char **argv)
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 
+	if (argc == 1)
+		return (0);
 	option.print = 1;
 	option.debug = 0;
 	option.colour = 0;
