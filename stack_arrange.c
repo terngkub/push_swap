@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:08:25 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/09 09:33:40 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/09 11:41:37 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	ft_stack_arrange(t_stack *stack_a, t_stack *stack_b, t_option *option)
 		i++;
 	}
 	while (op.rb--)
-		ft_operate("rb", stack_a, stack_b, 1, option);
+		ft_operate("rb", stack_a, stack_b, option);
 	while (op.rrb--)
-		ft_operate("rrb", stack_a, stack_b, 1, option);
+		ft_operate("rrb", stack_a, stack_b, option);
 }
 
 void	ft_stack_arrange_add(t_stack *stack_b, t_op *op)

@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:59:11 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/09 10:10:24 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/09 12:27:32 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ t_stack	*ft_read_input(int argc, char **argv, t_option *option)
 
 	stack = ft_stack_new();
 	i = 1;
-	ft_check_option(argv, &i, option);
+	if (option)
+		ft_check_option(argv, &i, option);
 	while (i < argc)
 	{
 		if (!(arr = ft_strsplit(argv[i++], ' ')))
@@ -89,8 +90,10 @@ t_stack	*ft_read_input(int argc, char **argv, t_option *option)
 		while (arr[j])
 		{
 			ft_check_input(arr[j]);
-			ft_stack_pushback(stack, ft_node_new(ft_atoi(arr[j++])));
+			ft_stack_pushback(stack, ft_node_new(ft_atoi(arr[j])));
+			free(arr[j++]);
 		}
+		free(arr);
 	}
 	ft_check_duplication(stack);
 	return (stack);

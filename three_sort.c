@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 19:04:42 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/09 09:34:15 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/09 11:39:20 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ void	ft_three_sort(t_stack *stack_a, t_stack *stack_b, t_option *option)
 		;
 	else if (one < two && two > three && one < three)
 	{
-		ft_operate("sa", stack_a, stack_b, 1, option);
-		ft_operate("ra", stack_a, stack_b, 1, option);
+		ft_operate("sa", stack_a, stack_b, option);
+		ft_operate("ra", stack_a, stack_b, option);
 	}
 	else if (one > two && two < three && one < three)
-		ft_operate("sa", stack_a, stack_b, 1, option);
+		ft_operate("sa", stack_a, stack_b, option);
 	else if (one < two && two > three && one > three)
-		ft_operate("rra", stack_a, stack_b, 1, option);
+		ft_operate("rra", stack_a, stack_b, option);
 	else if (one > two && two < three && one > three)
-		ft_operate("ra", stack_a, stack_b, 1, option);
+		ft_operate("ra", stack_a, stack_b, option);
 	else if (one > two && two > three)
 	{
-		ft_operate("ra", stack_a, stack_b, 1, option);
-		ft_operate("sa", stack_a, stack_b, 1, option);
+		ft_operate("ra", stack_a, stack_b, option);
+		ft_operate("sa", stack_a, stack_b, option);
 	}
 }

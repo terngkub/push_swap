@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:14:10 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/09 10:05:05 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/09 12:17:54 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_stack				*ft_stack_swap(t_stack *stack);
 t_stack				*ft_stack_rotate(t_stack *stack);
 t_stack				*ft_stack_revrotate(t_stack *stack);
 
+void				ft_stack_free(t_stack *stack);
 int					ft_stack_issorted(t_stack *stack);
 void				ft_stack_print(t_stack *stack);
 void				ft_debug(t_stack *stack_a, t_stack *stack_b);
@@ -46,6 +47,7 @@ void				ft_error(void);
 
 typedef struct		s_option
 {
+	int				print;
 	int				debug;
 	int				colour;
 }					t_option;
@@ -58,7 +60,7 @@ void				ft_operate_s(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate_p(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate_r(char *op, t_stack *stack_a, t_stack *stack_b);
 void				ft_operate(char *op, t_stack *stack_a, t_stack *stack_b,
-						char print, t_option *option);
+						t_option *option);
 
 typedef struct		s_op
 {
@@ -92,6 +94,6 @@ void				ft_three_sort(t_stack *stack_a, t_stack *stack_b,
 void				ft_selection_sort(t_stack *stack_a, t_stack *stack_b,
 						size_t len, t_option *option);
 void				ft_short_sort(t_stack *stack_a, t_stack *stack_b,
-						t_option *option);
+						t_option *option, size_t len);
 
 #endif

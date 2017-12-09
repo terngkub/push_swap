@@ -6,11 +6,29 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 18:10:03 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/08 20:33:30 by terng            ###   ########.fr       */
+/*   Updated: 2017/12/09 12:27:34 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_stack_free(t_stack *stack)
+{
+	t_node	*node;
+	t_node	*next;
+
+	if (!stack)
+		return ;
+	node = stack->top;
+	next = (node) ? node->next : NULL;
+	while (next)
+	{
+		next = node->next;
+		free(node);
+		node = next;
+	}
+	free(stack);
+}
 
 int		ft_stack_issorted(t_stack *stack)
 {
