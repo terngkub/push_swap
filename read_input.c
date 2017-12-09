@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:59:11 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/09 16:00:28 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/09 18:02:17 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_stack	*ft_read_input(int argc, char **argv, t_option *option)
 		ft_check_option(argv, &i, option);
 	while (i < argc)
 	{
-		if (!(arr = ft_strsplit(argv[i++], ' ')))
+		if (!(arr = ft_strsplit(argv[i++], ' ')) || arr[0] == NULL)
 			ft_error();
 		j = 0;
 		while (arr[j])
