@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 18:10:03 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/09 12:27:34 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/09 14:21:11 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_stack_free(t_stack *stack)
 		return ;
 	node = stack->top;
 	next = (node) ? node->next : NULL;
-	while (next)
+	while (node)
 	{
 		next = node->next;
 		free(node);
