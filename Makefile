@@ -6,15 +6,16 @@
 #    By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/02 18:18:19 by nkamolba          #+#    #+#              #
-#    Updated: 2017/12/09 20:04:21 by nkamolba         ###   ########.fr        #
+#    Updated: 2017/12/10 12:26:17 by nkamolba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+LIBFT = libft/libft.a
 CHECKER = checker
 PUSH_SWAP = push_swap
-LIBFT = libft/libft.a
-FLAG = -Wall -Wextra -Werror
-LIB = -Llibft -lft
+
+CFLAGS = -Wall -Wextra -Werror
+INCLUDE = -Llibft -lft
 
 UTILS_F		= 	stack.c stack_operation.c stack_utils.c \
 				ft_error.c read_input.c operation.c
@@ -30,28 +31,38 @@ PUSH_SWAP_O = $(PUSH_SWAP_F:%.c=%.o)
 all : $(LIBFT) $(CHECKER) $(PUSH_SWAP)
 
 $(LIBFT) :
-	make -C libft
+	@make -C libft
 
 $(CHECKER) : $(CHECKER_O) $(UTILS_O)
-	gcc $(FLAG) -o $(CHECKER) $(CHECKER_O) $(UTILS_O) $(LIB)
+	@gcc $(CFLAGS) -o $(CHECKER) $(CHECKER_O) $(UTILS_O) $(INCLUDE)
+	@echo "checker created"
 
 $(PUSH_SWAP) : $(PUSH_SWAP_O) $(UTILS_O)
-	gcc $(FLAG) -o $(PUSH_SWAP) $(PUSH_SWAP_O) $(UTILS_O) $(LIB)
+	@gcc $(CFLAGS) -o $(PUSH_SWAP) $(PUSH_SWAP_O) $(UTILS_O) $(INCLUDE)
+	@echo "push_swap created"
+	@echo "_____________________"
 	
 %.o: %.c
-	gcc $(FLAG) -c $<
+	@gcc $(CFLAGS) -c $< -o $@
 
 clean :
-	make clean -C libft
-	rm -f $(UTILS_O)
-	rm -f $(CHECKER_O)
-	rm -f $(PUSH_SWAP_O)
+	@make clean -C libft
+	@rm -f $(UTILS_O)
+	@rm -f $(CHECKER_O)
+	@echo "$(CHECKER) clean done"
+	@rm -f $(PUSH_SWAP_O)
+	@echo "$(PUSH_SWAP) clean done"
+	@echo "_____________________"
 
 fclean : clean
-	rm -f $(LIBFT)
-	rm -f $(CHECKER)
-	rm -f $(PUSH_SWAP)
+	@rm -f $(LIBFT)
+	@echo "libft.a fclean done"
+	@rm -f $(CHECKER)
+	@echo "$(CHECKER) fclean done"
+	@rm -f $(PUSH_SWAP)
+	@echo "$(PUSH_SWAP) fclean done"
+	@echo "_____________________"
 
 re : fclean all
 
-.PHONY: all $(LIBFT) $(CHECKER) $(PUSH_SWAP) clean fclean re
+.PHONY: all clean fclean re
