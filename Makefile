@@ -6,7 +6,7 @@
 #    By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/02 18:18:19 by nkamolba          #+#    #+#              #
-#    Updated: 2017/12/10 12:26:17 by nkamolba         ###   ########.fr        #
+#    Updated: 2017/12/13 16:15:04 by nkamolba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,14 +33,13 @@ all : $(LIBFT) $(CHECKER) $(PUSH_SWAP)
 $(LIBFT) :
 	@make -C libft
 
-$(CHECKER) : $(CHECKER_O) $(UTILS_O)
+$(CHECKER) : $(CHECKER_O) $(UTILS_O) | $(LIBFT)
 	@gcc $(CFLAGS) -o $(CHECKER) $(CHECKER_O) $(UTILS_O) $(INCLUDE)
 	@echo "checker created"
 
-$(PUSH_SWAP) : $(PUSH_SWAP_O) $(UTILS_O)
+$(PUSH_SWAP) : $(PUSH_SWAP_O) $(UTILS_O) | $(LIBFT)
 	@gcc $(CFLAGS) -o $(PUSH_SWAP) $(PUSH_SWAP_O) $(UTILS_O) $(INCLUDE)
 	@echo "push_swap created"
-	@echo "_____________________"
 	
 %.o: %.c
 	@gcc $(CFLAGS) -c $< -o $@
