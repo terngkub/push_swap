@@ -6,7 +6,7 @@
 /*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 18:09:07 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/12/09 17:54:39 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/12/13 15:10:52 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int		main(int argc, char **argv)
 	option.colour = 0;
 	stack_a = ft_read_input(argc, argv, &option);
 	stack_b = ft_stack_new();
-	if (argc == 1 || stack_a->len == 1)
-		return (0);
+	if (stack_a->len == 1)
+		;
 	else if (stack_a->len == 2 && stack_a->top->n > stack_a->top->next->n)
 		ft_operate("ra", stack_a, stack_b, &option);
 	else if (stack_a->len == 3)
